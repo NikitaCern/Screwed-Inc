@@ -22,7 +22,7 @@ class PartController extends Controller
     }
 
     /**
-     * Show the form for creating a new order.
+     * Show the form for creating a new part.
      *
      * @return \Illuminate\Http\Response
      */
@@ -108,7 +108,7 @@ class PartController extends Controller
      */
     public function destroy($id)
     {
-        $part = Order::findOrFail($id);
+        $part = Part::findOrFail($id);
         $part->delete();
         return redirect()->route('parts');
     }
