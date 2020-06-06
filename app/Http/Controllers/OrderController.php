@@ -24,10 +24,9 @@ class OrderController extends Controller
     /**
      * Show the form for creating a new order.
      *
-     * @param  int  $spec_id
      * @return \Illuminate\Http\Response
      */
-    public function create($spec_id)
+    public function create()
     {
         return view('order_create');
     }
@@ -117,6 +116,4 @@ class OrderController extends Controller
         $order->delete();
         return redirect()->route('orders');
     }
-
-    /** Create task **/
 }
