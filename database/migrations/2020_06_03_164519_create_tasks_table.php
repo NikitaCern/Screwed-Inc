@@ -17,6 +17,7 @@ class CreateTasksTable extends Migration
           $table->increments('id');
           $table->datetime('deadline');
           $table->string('name');
+          $table->integer('amount');
           $table->integer('amount_left');
           $table->integer('order')->unsigned();
           $table->string('part');
