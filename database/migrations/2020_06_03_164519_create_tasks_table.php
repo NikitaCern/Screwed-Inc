@@ -24,7 +24,7 @@ class CreateTasksTable extends Migration
           $table->string('responsible_employee');
           $table->foreign('order')->references('id')->on('orders');
           $table->foreign('part')->references('code')->on('parts');
-          $table->foreign('responsible_employee')->nullable()->references('personal-number')->on('users');
+          $table->foreign('responsible_employee')->nullable()->references('personal_number')->on('users');
         });
     }
 
