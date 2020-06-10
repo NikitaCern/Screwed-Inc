@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('post');
             $table->string('email')->unique();
             $table->string('password');
-            $table->json('roles');
+            $table->json('roles')->nullable();
         });
     }
 
