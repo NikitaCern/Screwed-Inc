@@ -85,9 +85,32 @@
                             <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Roles') }}</label>
 
                             <div class="col-md-6">
-                                <input id="roles" type="text" class="form-control @error('roles') is-invalid @enderror" name="roles" value="{{ old('roles') }}" autocomplete="roles" autofocus>
 
+                              <select id="roles" class="form-control @error('roles') is-invalid @enderror" name="roles" value="{{ old('roles') }}" autocomplete="roles" autofocus>
+                                 <option value="auth_user">Authenticated user</option>
+                                 <option value="task_distr">Task distributor</option>
+                                 <option value="order_mng">Order manager</option>
+                                 <option value="part_mng">Part manager</option>
+                                 <option value="admin">User administrator</option>
+                              </select>
                                 @error('roles')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="preferred_language" class="col-md-4 col-form-label text-md-right">{{ __('Preferred Language') }}</label>
+
+                            <div class="col-md-6">
+
+                              <select id="preferred_language" class="form-control @error('preferred_language') is-invalid @enderror" name="preferred_language" value="{{ old('preferred_language') }}" autocomplete="preferred_language" autofocus>
+                                 <option value="en">English</option>
+                                 <option value="lv"> Latviešu</option>
+                              </select>
+                                @error('preferred_language')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

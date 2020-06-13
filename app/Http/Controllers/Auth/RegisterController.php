@@ -56,7 +56,8 @@ class RegisterController extends Controller
             'post' => ['required', 'string', 'min:3'],
             'email' => ['required', 'string', 'email' , 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'roles' => ['json']
+            'roles' => ['required','string'],
+            'preferred_language' => ['required','string']
         ]);
     }
     /**
@@ -74,6 +75,8 @@ class RegisterController extends Controller
             'post' => $data['post'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'roles' => $data['roles'],
+            'preferred_language' => $data['preferred_language'],
         ]);
     }
 }
