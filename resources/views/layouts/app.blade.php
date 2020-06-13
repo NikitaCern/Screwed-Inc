@@ -48,20 +48,20 @@
                                 </li>
                             @endif
                         @else
-                                <span class="navbar-text" id="username">
-                                  Hello {{ Auth::user()->name }}
-                                </span>
-                                  <li class="nav-item">
-                                    <a class="btn btn-outline-dark" id="logout-btn" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                          <span class="navbar-text" id="username">
+                            Hello {{ Auth::user()->first_name }}  {{ Auth::user()->last_name }}
+                          </span>
+                            <li class="nav-item">
+                              <a class="btn btn-outline-dark" id="logout-btn" href="{{ route('logout') }}"
+                                 onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();">
+                                  {{ __('Logout') }}
+                              </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </li>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  @csrf
+                              </form>
+                          </li>
                         @endguest
                     </ul>
                 </div>

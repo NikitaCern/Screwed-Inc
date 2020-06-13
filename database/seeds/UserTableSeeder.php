@@ -16,8 +16,10 @@ class UserTableSeeder extends Seeder
         'first_name' => 'Janis',
         'last_name' => 'Berzins',
         'post' => 'Admin',
+        'roles' => 'admin',
         'email' => 'Janis.Berzins@email.com',
         'password' => bcrypt('password'),
+        'preferred_language' => 'en'
       ]);
     }
 }
