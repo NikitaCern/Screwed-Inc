@@ -13,12 +13,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth/login');
+
+Route::group(['middleware' => ['auth']], function () {
+  Route::get('/submit', function () {
+      return view('submit');
+  });
+  Route::get('/home', function () {
+      return view('home');
+  });
+  Route::get('/employees', function () {
+      return view('employees');
+  });
+  Route::get('/orders', function () {
+      return view('orders');
+  });
+  Route::get('/taskAsign', function () {
+      return view('taskAssignement');
+  });
+  Route::get('/tasks', function () {
+      return view('tasks');
+  });
+  Route::get('/users', function () {
+      return view('users');
+  });
 });
 
-Route::get('/submit', function () {
-    return view('submit');
+Route::group(['middleware' => ['guest']], function () {
+  Route::get('/', function () {
+      return view('auth/login');
+  });
 });
 
 Auth::routes();

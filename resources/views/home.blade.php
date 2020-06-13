@@ -13,8 +13,23 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     You are logged in!
+                    <br>
+                    <a  href="/employees" class="btn btn-primary">
+                        {{ __('Employee') }}
+                    </a> <br>
+                    <a  href="/orders" class="btn btn-primary">
+                        {{ __('Orders') }}
+                    </a><br>
+                    <a  href="/taskAsign" class="btn btn-primary">
+                        {{ __('Task Assignement') }}
+                    </a><br>
+                    <a  href="/tasks" class="btn btn-primary">
+                        {{ __('Tasks') }}
+                    </a><br>
+                    <a  href="/users" class="btn btn-primary">
+                        {{ __('Users') }}
+                    </a><br>
                 </div>
             </div>
         </div>
