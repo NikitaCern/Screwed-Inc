@@ -24,9 +24,6 @@ Route::group(['middleware' => ['guest']], function () {
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/submit', function () {
-        return view('submit');
-    });
     Route::get('/home', function () {
         return view('home');
     })->middleware('checkRole');
