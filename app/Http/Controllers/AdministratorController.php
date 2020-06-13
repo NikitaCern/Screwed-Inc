@@ -47,18 +47,21 @@ class AdministratorController extends Controller
             'post' => 'required|string',
             'email' => 'required|email',
             'password' => 'required|string',
-            'roles' => 'required|json',
+            'roles' => 'required|string',
+            'preferred_language' => 'required|string',
         );
-        $this->validate($request, $rules); 
-        
+        $this->validate($request, $rules);
+
         $user = new User();
         $user["personal-number"] = $request['personal-number'];
         $user->first_name = $request['first_name'];
         $user->last_name = $request['last_name'];
         $user->post = $request['post'];
+        $user->roles = $request['roles'];
+        $user->preferred_language = $request['preferred_language'];
         $user->email = $request['email'];
         $user->password = Hash::make($request['password']);
-        $user->save();        
+        $user->save();
         return redirect()->route('users');
     }
 
@@ -89,18 +92,20 @@ class AdministratorController extends Controller
             'post' => 'required|string',
             'email' => 'required|email',
             'password' => 'required|string',
-            'roles' => 'required|json',
+            'roles' => 'required|string',
+            'preferred_language' => 'required|string',
         );
-        $this->validate($request, $rules); 
-        
+        $this->validate($request, $rules);
+
         $user = User::findOrFail($id);
         $user["personal-number"] = $request['personal-number'];
         $user->first_name = $request['first_name'];
         $user->last_name = $request['last_name'];
         $user->post = $request['post'];
         $user->email = $request['email'];
+        $user->preferred_language = $request['preferred_language'];
         $user->password = Hash::make($request['password']);
-        $user->save();        
+        $user->save();
         return redirect()->route('users');
     }
 
