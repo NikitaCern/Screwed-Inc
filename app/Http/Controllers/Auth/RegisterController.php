@@ -56,8 +56,13 @@ class RegisterController extends Controller
             'post' => ['required', 'string', 'min:3'],
             'email' => ['required', 'string', 'email' , 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+<<<<<<< HEAD
             'roles' => ['required','string', 'in:auth_user,task_distr,order_mng,part_mng,admin'],
             'preferred_language' => ['required','string', 'in:en,lv']
+=======
+            'roles' => ['required','string'],
+            'preferred_language' => ['required','string']
+>>>>>>> e918d468c2a4e62d33332978cce6817ceb0ca45a
         ]);
     }
     /**
