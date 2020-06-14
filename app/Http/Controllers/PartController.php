@@ -18,7 +18,7 @@ class PartController extends Controller
      */
     public function index()
     {
-        return view('parts', array('parts' => Part::all()->get()));
+        return view('parts', array('parts' => Part::all()));
     }
 
     /**
@@ -57,58 +57,56 @@ class PartController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $code
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($code)
     {
-        return view('part', array('part' => Part::findOrFail($id)));
+        return view('part', array('part' => Part::where('code','=', $code)->first()));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $code
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($code)
     {
-        return view('part_edit', array('part' => Part::findOrFail($id)));
+        return view('part_edit', array('part' => Part::where('code','=', $code)->first()));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string  $code
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $code)
     {
         $rules = array(
-            'code' => 'required|string',
             'name' => 'required|string',
             'description' => 'required|string',
         );        
         $this->validate($request, $rules); 
         
-        $part = Part::findOrFail($id);
-        $part->code = $request['code'];
+        $part = Part::where('code','=', $code)->first();
         $part->name = $request['name'];
         $part->description = $request['description'];
-        $part->save();        
-        return redirect()->route('part', $id);
+        $part->save();
+        return redirect()->route('part', $code);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $code
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($code)
     {
-        $part = Part::findOrFail($id);
+        $part = Part::where('code','=', $code)->first();
         $part->delete();
         return redirect()->route('parts');
     }

@@ -23,6 +23,11 @@ Route::group(['middleware' => ['guest']], function () {
 
 Auth::routes();
 
+Route::get('parts/all', 'PartController@index')->name("parts");
+Route::resource('parts', 'PartController', ['except' => ['show', 'edit', 'destroy', 'index']]);
+Route::get('parts/{code}', 'PartController@show')->name("part");
+Route::get('parts/edit/{code}', 'PartController@edit')->name("part_edit");
+Route::get('parts/destroy/{code}', 'PartController@destroy')->name("part_destroy");
 
 Route::get('orders/{id}', 'OrderController@show')->where('id','[0-9]+')->name("order");
 Route::get('orders/edit/{id}', 'OrderController@edit')->where('id','[0-9]+')->name("order_edit");

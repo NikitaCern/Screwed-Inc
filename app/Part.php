@@ -8,4 +8,5 @@ class Part extends Model
 {
     //
     public $incrementing = false;
+    protected $primaryKey = 'code';
 }

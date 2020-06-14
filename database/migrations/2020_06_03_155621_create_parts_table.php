@@ -17,6 +17,8 @@ class CreatePartsTable extends Migration
             $table->string('code')->unique()->primary();
             $table->string('name');
             $table->string('description');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

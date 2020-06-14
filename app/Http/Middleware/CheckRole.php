@@ -17,7 +17,7 @@ class CheckRole
     public function handle($request, Closure $next)
     {
       if(auth()->user()->roles == 'part_mng'){
-                return redirect('home');
+                return redirect('parts');
             }
       else if(auth()->user()->roles == 'order_mng'){
                 return redirect('orders');
