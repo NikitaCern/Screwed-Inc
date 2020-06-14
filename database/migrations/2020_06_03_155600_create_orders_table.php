@@ -19,6 +19,8 @@ class CreateOrdersTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->boolean('is_done');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

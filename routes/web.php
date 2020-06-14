@@ -23,6 +23,9 @@ Route::group(['middleware' => ['guest']], function () {
 
 Auth::routes();
 
+Route::get('orders/all', 'OrderController@index')->name("orders");
+Route::resource('orders', 'OrderController');
+
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', function () {
         return view('home');
@@ -59,3 +62,4 @@ Route::group(['middleware' => ['auth']], function () {
         return view('taskAssignement', ['tasks' =>$tasks ]);
     })->middleware('task_asgn');
 });
+
