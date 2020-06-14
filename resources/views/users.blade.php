@@ -6,7 +6,11 @@
       <form>
         <div class="form-group d-flex justify-content-around">
 
+<<<<<<< HEAD
           <a href="{{ url('new_user') }}" class="btn btn-outline-dark create-order-btn">CREATE NEW USER</a>
+=======
+          <a href="{{ url('new_user') }}" class="btn btn-outline-dark create-order-btn"><i class='far fa-sticky-note'></i>CREATE NEW USER</a>
+>>>>>>> 5fcc10a34db928b580fc3f51ccf7befed6363f3e
 
         </div>
 
@@ -21,8 +25,13 @@
             <p class="table-content">{{$data->post}}</p>
             </td>
             <td class="col-btn">
+<<<<<<< HEAD
               <a class="btn btn-outline-dark edit-btn">EDIT</a>
               <a class="btn btn-secondary remove-btn">REMOVE</a>
+=======
+              <button type="button" class="btn btn-outline-dark edit-btn">EDIT</button>
+              <button type="submit" class="btn btn-secondary remove-btn">REMOVE</button>
+>>>>>>> 5fcc10a34db928b580fc3f51ccf7befed6363f3e
             </td>
           </tr>
           @endforeach
