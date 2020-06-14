@@ -23,8 +23,10 @@ Route::group(['middleware' => ['guest']], function () {
 
 Auth::routes();
 
-Route::get('order/{id}', 'OrderController@show')->where('id','[0-9]+')->name("order");
+
+Route::get('orders/{id}', 'OrderController@show')->where('id','[0-9]+')->name("order");
 Route::get('orders/edit/{id}', 'OrderController@edit')->where('id','[0-9]+')->name("order_edit");
+Route::get('orders/destroy/{id}', 'OrderController@destroy')->where('id','[0-9]+')->name("order_destroy");
 Route::get('orders/all', 'OrderController@index')->name("orders");
 Route::resource('orders', 'OrderController');
 
