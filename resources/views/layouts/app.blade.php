@@ -32,19 +32,10 @@
                 <div class="navbar" id="navbarSupportedContent">
                         @guest
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-<<<<<<< HEAD
                         @else
                           <h2 class="text-light m-auto pr-3" id="username">
                             Hello {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                           </h2>
-=======
-                            </li>
-                        @else
-                          <h2 class="text-light w-auto" id="username">
-                            Hello {{ Auth::user()->first_name }}
-                          </h2>
-                            <li class="nav-item">
->>>>>>> 5fcc10a34db928b580fc3f51ccf7befed6363f3e
                               <a class="btn btn-outline-dark" id="logout-btn" href="{{ route('logout') }}"
                                  onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();">

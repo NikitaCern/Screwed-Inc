@@ -11,11 +11,7 @@
       <a class="btn btn-secondary order-btn" href="/tasks">TASKS</a>
     </div>
     @endif
-<<<<<<< HEAD
     <a class="btn btn-outline-dark create-order-btn">CREATE TASK</a>
-=======
-    <a class="btn btn-outline-dark create-order-btn"><i class='far fa-sticky-note'></i>CREATE TASK</a>
->>>>>>> 5fcc10a34db928b580fc3f51ccf7befed6363f3e
   </div>
   </form>
   @if (sizeof($tasks) != 0)
