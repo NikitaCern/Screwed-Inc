@@ -17,9 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -30,28 +30,12 @@
                 </a>
 
                 <div class="navbar" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
                         @else
-                          <span class="navbar-text" id="username">
-                            Hello {{ Auth::user()->first_name }}  {{ Auth::user()->last_name }}
-                          </span>
-                            <li class="nav-item">
+                          <h2 class="text-light m-auto pr-3" id="username">
+                            Hello {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                          </h2>
                               <a class="btn btn-outline-dark" id="logout-btn" href="{{ route('logout') }}"
                                  onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();">
@@ -61,7 +45,6 @@
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                   @csrf
                               </form>
-                          </li>
                         @endguest
                     </ul>
                 </div>

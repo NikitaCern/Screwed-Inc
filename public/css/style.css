@@ -2,23 +2,69 @@
   border-radius: 0!important;
 }
 #logo{
-    margin-left: 12% !important;
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     font-weight: bold;
+}
 
+#logo:hover{
+    color:#eaaa00;
 }
 #username{
-    font-size: 12px;
+    font-size: 16px;
     margin-right: 16%;
 }
 #logout-btn{
     background-color: #fff;
-    font-size: 12px;
+    font-size: 16px;
+}
+#logout-btn:hover{
+    background-color: #eaaa00;
+    font-size: 16px;
 }
 .mid{
     max-width: 75%;
 }
+.navbar .container{
+  white-space: nowrap;
+}
+#navbarSupportedContent{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.justify-content-around .btn:hover{
+  background-color: #08d123;
+  color: #fff;
+  border-color: #08d123;
+}
+h4 , .text-center{
+  font-weight: bold;
+}
+.col-btn .btn{
+ margin: 0.5em;
+}
+
+.remove-btn:hover{
+    background-color:#e61102!important;
+    border-color: #e61102!important;
+}
+
+a , .btn:hover{
+  background-color: #eaaa00;
+  color: #fff;
+  border-color: #eaaa00;
+}
+.col-btn .btn:hover{
+ background-color: #eaaa00;
+ color: #fff;
+ border-color: #eaaa00;
+}
+
+.col-btn .btn-secondary{
+  color:#fff;
+}
+
 .order-btn{
     margin-left: 3%;
     padding-right: 40px;
@@ -51,6 +97,7 @@
     padding-left: 7%;
     padding-right: 7%;
 }
+
 .user-heading{
     font-weight: bold;
 }
@@ -151,7 +198,6 @@
 }
 .create-order-btn{
     font-size: 12px;
-    margin-left: 2%;
     padding-left: 3%;
     padding-right: 3%;
     padding-top: 10px;
@@ -167,9 +213,10 @@
 }
 .col-btn{
     text-align: end;
+    vertical-align: inherit;
 }
 #admin-search{
-    width: 67%;
+    width: 70%;
 }
 .name{
     font-weight: 600;
