@@ -93,7 +93,6 @@ class OrderController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'deadline' => 'required|date',
-            'is_done' => 'required|integer|min:0|max:0',
         );        
         $this->validate($request, $rules); 
         
@@ -101,7 +100,10 @@ class OrderController extends Controller
         $order->name = $request['name'];
         $order->description = $request['description'];
         $order->deadline = $request['deadline'];
-        $order->is_done = $request['is_done'];
+        if ( !isset($request['is_done']) || $request['is_done']==null )    
+            $order->is_done = 0;
+        else 
+            $order->is_done = 1;
         $order->save();        
         return redirect()->route('order', $id);
     }
