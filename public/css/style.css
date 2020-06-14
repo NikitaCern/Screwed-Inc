@@ -2,23 +2,44 @@
   border-radius: 0!important;
 }
 #logo{
-    margin-left: 12% !important;
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     font-weight: bold;
-
 }
 #username{
-    font-size: 12px;
+    font-size: 16px;
     margin-right: 16%;
 }
 #logout-btn{
     background-color: #fff;
-    font-size: 12px;
+    font-size: 16px;
+}
+#logout-btn:hover{
+    background-color: #eaaa00;
+    font-size: 16px;
 }
 .mid{
     max-width: 75%;
 }
+.col-btn .btn{
+ margin: 0.5em;
+}
+
+a , .btn:hover{
+  background-color: #eaaa00;
+  color: #fff;
+  border-color: #eaaa00;
+}
+.col-btn .btn:hover{
+ background-color: #eaaa00;
+ color: #fff;
+ border-color: #eaaa00;
+}
+
+.col-btn .btn-secondary{
+  color:#fff;
+}
+
 .order-btn{
     margin-left: 3%;
     padding-right: 40px;
@@ -151,7 +172,6 @@
 }
 .create-order-btn{
     font-size: 12px;
-    margin-left: 2%;
     padding-left: 3%;
     padding-right: 3%;
     padding-top: 10px;
@@ -167,9 +187,10 @@
 }
 .col-btn{
     text-align: end;
+    vertical-align: inherit;
 }
 #admin-search{
-    width: 67%;
+    width: 70%;
 }
 .name{
     font-weight: 600;

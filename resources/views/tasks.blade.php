@@ -4,7 +4,7 @@
   <br>
   <h4 class="text-center">Tasks</h4>
   <form>
-  <div class="form-group">
+  <div class="form-group d-flex justify-content-around">
     @if (Auth::user()->roles == 'order_mng')
     <div class="d-inline-flex">
       <a class="btn btn-outline-dark order-btn" href="/orders">ORDERS</a>
@@ -12,8 +12,6 @@
     </div>
     @endif
     <a class="btn btn-outline-dark create-order-btn"><i class='far fa-sticky-note'></i>CREATE TASK</a>
-    <input type="text" placeholder="SEARCH" class="search-bar">
-    <button type="submit" class="btn btn-secondary search-btn"><i class='fas fa-search'></i>SEARCH</button>
   </div>
   </form>
   @if (sizeof($tasks) != 0)

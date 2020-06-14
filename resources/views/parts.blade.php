@@ -4,10 +4,8 @@
   <br>
   <h4 class="text-center">Parts</h4>
   <form>
-  <div class="form-group">
+  <div class="form-group d-flex justify-content-around">
     <a class="btn btn-outline-dark create-order-btn"><i class='far fa-sticky-note'></i>CREATE PART</a>
-    <input type="text" placeholder="SEARCH" class="search-bar">
-    <button type="submit" class="btn btn-secondary search-btn"><i class='fas fa-search'></i>SEARCH</button>
   </div>
 
   </form>

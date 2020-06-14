@@ -17,9 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -42,15 +42,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
                         @else
-                          <span class="navbar-text" id="username">
-                            Hello {{ Auth::user()->first_name }}  {{ Auth::user()->last_name }}
-                          </span>
+                          <h2 class="text-light w-auto" id="username">
+                            Hello {{ Auth::user()->first_name }}
+                          </h2>
                             <li class="nav-item">
                               <a class="btn btn-outline-dark" id="logout-btn" href="{{ route('logout') }}"
                                  onclick="event.preventDefault();
