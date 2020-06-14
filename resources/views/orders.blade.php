@@ -20,13 +20,7 @@
         @foreach ($orders as $key => $data)
           <div class="container mid bg-order" id="order-table">
                 <div class="row">
-                    <div class="col-6">
-                      <br><br>
-                        <img src="favicon.ico" alt="" class="img-fluid">
-
-                    </div>
-
-                      <div class="col-6">
+                        <div class="col-6">
                          <h6 class="table-heading">{{$data->name}}</h6>
                          <p class="table-content">{{$data->deadline}}</p>
                          <p class="table-content">{{$data->description}}</p>

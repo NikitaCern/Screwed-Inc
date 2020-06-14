@@ -11,7 +11,7 @@ class User extends Authenticatable
 
     public $timestamps = false;
     protected $table = 'users';
-    protected $primaryKey = 'personal_number';
+    protected $rememberTokenName=false;
     protected $fillable = [
         'personal_number' ,'first_name' ,'last_name' ,'post' ,'email','password' ,'roles','preferred_language'
       ];

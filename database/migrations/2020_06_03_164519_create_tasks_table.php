@@ -21,10 +21,10 @@ class CreateTasksTable extends Migration
           $table->integer('amount_left');
           $table->integer('order')->unsigned();
           $table->string('part');
-          $table->string('responsible_employee');
+          $table->unsignedInteger('responsible_employee');
           $table->foreign('order')->references('id')->on('orders');
           $table->foreign('part')->references('code')->on('parts');
-          $table->foreign('responsible_employee')->nullable()->references('personal_number')->on('users');
+          $table->foreign('responsible_employee')->nullable()->references('id')->on('users');
         });
     }
 
