@@ -1,68 +1,43 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid">
-      </div><br>
-      <button type="button" class="btn btn-outline-dark order-btn">ORDERS</button>
+    <div class="container mid">
+      <br>
       <h4 class="text-center">Orders</h4>
       <form>
       <div class="form-group">
-        <button type="submit" class="btn btn-secondary order-btn">TASKS</button>
-        <button type="button" class="btn btn-outline-dark create-order-btn"><i class='far fa-sticky-note'></i>CREATE ORDER</button>
-        <input type="text" placeholder="SEARCH TERM" class="search-bar">
+          @if(Auth::users->roles == 'order_mng')
+          <div class="d-inline-flex">
+                    <a class="btn btn-secondary order-btn" href="/orders">ORDERS</a>
+                    <a class="btn btn-outline-dark order-btn" href="/tasks">TASKS</a>
+          </div>
+          @endif
+        <a class="btn btn-outline-dark create-order-btn"><i class='far fa-sticky-note'></i>CREATE ORDER</a>
+        <input type="text" placeholder="SEARCH" class="search-bar">
         <button type="submit" class="btn btn-secondary search-btn"><i class='fas fa-search'></i>SEARCH</button>
-
       </div>
 
       </form>
-      <div class="container mid bg-order" id="order-table">
-            <div class="row">
-                <div class="col-6">
-                  <br><br>
-                    <img src="images/dummy.jpg" alt="" class="img-fluid">
+        @foreach ($orders as $key => $data)
+          <div class="container mid bg-order" id="order-table">
+                <div class="row">
+                    <div class="col-6">
+                      <br><br>
+                        <img src="favicon.ico" alt="" class="img-fluid">
 
+                    </div>
+
+                      <div class="col-6">
+                         <h6 class="table-heading">{{$data->name}}</h6>
+                         <p class="table-content">{{$data->deadline}}</p>
+                         <p class="table-content">{{$data->description}}</p>
+                          <p class="table-content">Not Done</p>
+                         <button type="button" class="btn btn-outline-dark" id="task-btn">CREATE TASKS</button>
+                         <button type="button" class="btn btn-outline-dark edit-btn">EDIT</button>
+                        <button type="submit" class="btn btn-secondary remove-btn" id="">REMOVE</button>
+                      </div>
                 </div>
-                <div class="col-6">
-                   <table class="table table-borderless">
-                      <tbody>
-                        <tr>
-                          <br><br>
-                          <td><h6 class="table-heading">Name:</h6></td>
-                          <td class="table-content">StarBiz Business Company</td>
-
-                        </tr>
-                        <tr>
-                          <td><h6 class="table-heading">Category:</h6></td>
-                          <td class="table-content">Services</td>
-
-                        </tr>
-                        <tr>
-                          <td><h6 class="table-heading">Designer:</h6></td>
-                          <td class="table-content">Michael Moore</td>
-
-                        </tr>
-                        <tr>
-                          <td><h6 class="table-heading">Technology:</h6></td>
-                          <td class="table-content">HTML5, CSS3, PHP, 3D</td>
-
-                        </tr>
-                        <tr>
-                          <td><h6 class="table-heading">Deadline:</h6></td>
-                          <td class="table-content">August 15,2020</td>
-
-                        </tr>
-
-                      </tbody>
-                    </table>
-                   <p class="table-content">Short Description</p><br>
-                   <button type="button" class="btn btn-outline-dark" id="task-btn">CREATE TASKS</button>
-                   <button type="button" class="btn btn-outline-dark edit-btn">EDIT</button>
-
-                  <button type="submit" class="btn btn-secondary remove-btn" id="">REMOVE</button>
-
-                </div>
-
-            </div>
-
-      <br><br>
+          <br><br>
+        </div>
+      @endforeach
     </div>
 @endsection

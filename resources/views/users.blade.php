@@ -16,14 +16,16 @@
       <table class="table table-borderless">
 
         <tbody>
+          @foreach ($users as $key => $data)
           <tr>
-            <td><h5 class="name">Name Surname</h5>
-            <p class="table-content">Position</p>
+            <td><h5 class="name">{{$data->first_name}} {{$data->last_name}}</h5>
+            <p class="table-content">{{$data->post}}</p>
             </td>
             <td class="col-btn"><button type="button" class="btn btn-outline-dark edit-btn">EDIT</button>
               <button type="submit" class="btn btn-secondary remove-btn">REMOVE</button>
             </td>
           </tr>
+          @endforeach
         </tbody>
       </table>
     </div>

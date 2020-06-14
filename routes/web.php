@@ -28,18 +28,27 @@ Route::group(['middleware' => ['auth']], function () {
         return view('home');
     })->middleware('checkRole');
     Route::get('/employees', function () {
-        return view('employees');
+      $responsible_PK = Auth::user()->personal_number;
+      $tasks = DB::table('tasks')->where('responsible_employee', $responsible_PK)->get();
+        return view('employees' , ['tasks' =>$tasks ]);
+    });
+    Route::get('/parts', function () {
+        $parts = DB::table('parts')->get();
+        return view('parts', ['parts' =>$parts ]);
     });
     Route::get('/orders', function () {
-        return view('orders');
+      $orders = DB::table('orders')->get();
+        return view('orders',['orders' =>$orders ]);
     });
     Route::get('/taskAsign', function () {
-        return view('taskAssignement');
+        return view('task');
     });
     Route::get('/tasks', function () {
-        return view('tasks');
+      $tasks = DB::table('tasks')->get();
+        return view('tasks', ['tasks' =>$tasks ]);
     });
     Route::get('/users', function () {
-        return view('users');
+      $users = DB::table('users')->get();
+        return view('users', ['users' =>$users ]);
     });
 });
