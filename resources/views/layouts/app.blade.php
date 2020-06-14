@@ -31,7 +31,6 @@
 
                 <div class="navbar" id="navbarSupportedContent">
                         @guest
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @else
                           <h2 class="text-light m-auto pr-3" id="username">
                             Hello {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
