@@ -5,7 +5,7 @@
       <h4 class="text-center">Orders</h4>
       <form>
       <div class="form-group">
-          @if(Auth::users->roles == 'order_mng')
+          @if(Auth::user()->roles == 'order_mng')
           <div class="d-inline-flex">
                     <a class="btn btn-secondary order-btn" href="/orders">ORDERS</a>
                     <a class="btn btn-outline-dark order-btn" href="/tasks">TASKS</a>
@@ -15,7 +15,7 @@
         <input type="text" placeholder="SEARCH" class="search-bar">
         <button type="submit" class="btn btn-secondary search-btn"><i class='fas fa-search'></i>SEARCH</button>
       </div>
-
+      @if (sizeof($orders) != 0)
       </form>
         @foreach ($orders as $key => $data)
           <div class="container mid bg-order" id="order-table">
@@ -39,5 +39,8 @@
           <br><br>
         </div>
       @endforeach
+      @else
+        <h2>No orders left!</h2>
+      @endif
     </div>
 @endsection

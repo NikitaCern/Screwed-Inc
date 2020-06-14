@@ -11,6 +11,7 @@
   </div>
 
   </form>
+  @if (sizeof($parts) != 0)
   <table class="table table-borderless">
 
     <tbody>
@@ -26,5 +27,8 @@
       @endforeach
     </tbody>
   </table>
+  @else
+  <h2>No parts left!</h2>
+  @endif
 </div>
 @endsection

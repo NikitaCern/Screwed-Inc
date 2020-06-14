@@ -13,6 +13,7 @@
         </div>
 
       </form>
+      @if (sizeof($users) != 0)
       <table class="table table-borderless">
 
         <tbody>
@@ -28,5 +29,8 @@
           @endforeach
         </tbody>
       </table>
+      @else
+      <h2>No Users in the database!</h2>
+      @endif
     </div>
 @endsection

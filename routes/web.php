@@ -41,7 +41,8 @@ Route::group(['middleware' => ['auth']], function () {
         return view('orders',['orders' =>$orders ]);
     });
     Route::get('/taskAsign', function () {
-        return view('task');
+      $tasks = DB::table('tasks')->get();
+        return view('taskAssignement', ['tasks' =>$tasks ]);
     });
     Route::get('/tasks', function () {
       $tasks = DB::table('tasks')->get();
