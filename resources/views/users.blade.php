@@ -6,7 +6,7 @@
       <form>
         <div class="form-group">
 
-          <button type="button" class="btn btn-outline-dark create-order-btn"><i class='far fa-sticky-note'></i>CREATE NEW USER</button>
+          <a href="{{ url('new_user') }}" class="btn btn-outline-dark create-order-btn"><i class='far fa-sticky-note'></i>CREATE NEW USER</a>
           <input type="text" placeholder="SEARCH TERM" class="search-bar" id="admin-search">
           <button type="submit" class="btn btn-secondary search-btn"><i class='fas fa-search'></i>SEARCH</button>
 
