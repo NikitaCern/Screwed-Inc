@@ -21,7 +21,22 @@ Route::group(['middleware' => ['guest']], function () {
   });
 });
 
+
+Route::group(['middleware' => ['auth']], function () {
+  Route::get('/register', function () {
+      return view('auth/register');
+  })->middleware('admin');
+
+});
+
 Auth::routes();
+
+
+Route::get('users/edit/{id}', 'UserController@edit')->name("user_edit");
+Route::get('users/destroy/{id}', 'UserController@destroy')->name("user_destroy");
+Route::get('users', 'UserController@index')->name("users");
+Route::resource('users', 'UserController', ['except' => ['show', 'edit', 'destroy', 'index']]);
+
 
 Route::get('parts', 'PartController@index')->name("parts");
 Route::resource('parts', 'PartController', ['except' => ['show', 'edit', 'destroy', 'index']]);
@@ -37,14 +52,12 @@ Route::get('orders', 'OrderController@index')->name("orders");
 Route::get('orders/create', 'OrderController@create')->name("orders_create");
 Route::resource('orders', 'OrderController');
 
+
+
     Route::get('/home', function () {
         return view('home');
     })->middleware('checkRole');
 
-    Route::get('/users', function () {
-      $users = DB::table('users')->get();
-        return view('users', ['users' =>$users ]);
-    })->middleware('admin');
 
     Route::get('/tasks', function () {
       $tasks = DB::table('tasks')->get();

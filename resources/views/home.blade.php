@@ -19,6 +19,9 @@
                     <a  href="/users" class="btn btn-outline-dark edit-btn">
                         {{ __('Users') }}
                     </a>
+                    <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
                   </div>
             </div>
 

@@ -37,6 +37,9 @@ label{
 input{
   width: inherit;
 }
+select{
+  width: inherit;
+}
 
 input[type=submit]{
   font-size: 16px;
