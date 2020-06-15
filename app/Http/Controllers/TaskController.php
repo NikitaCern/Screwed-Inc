@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Task;
+use App\User;
+use App\Part;
+use App\Order;
 
 class TaskController extends Controller
 {
@@ -18,7 +21,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('tasks', array('tasks' => Task::all()->get()));
+        return view('tasks', array('tasks' => Task::all()));
     }
 
     /**
@@ -26,9 +29,14 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        return view('task_create', array('order' => $id));
+        return view('task_create', 
+            array(
+                'orders' => Order::pluck('name', 'id'),
+                'users' => User::pluck('email', 'id'),
+                'parts' => Part::pluck('name', 'code'),
+            ));
     }
 
     /**
@@ -43,7 +51,7 @@ class TaskController extends Controller
             'name' => 'required|string',
             'deadline' => 'required|date',
             'order' => 'required|exists:orders,id',
-            'responsible_employee' => 'nullable|exists:users,personal-number',
+            'responsible_employee' => 'nullable|exists:users,id',
             'part' => 'required|exists:parts,code',
             'amount' => 'required|integer|min:1',
         );

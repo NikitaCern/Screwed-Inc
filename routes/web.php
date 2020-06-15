@@ -38,7 +38,15 @@ Route::get('users', 'UserController@index')->name("users");
 Route::resource('users', 'UserController', ['except' => ['show', 'edit', 'destroy', 'index']]);
 
 
-Route::get('parts', 'PartController@index')->name("parts");
+Route::get('tasks/{id}', 'TaskController@show')->where('id','[0-9]+')->name("task");
+Route::get('tasks/edit/{id}', 'TaskController@edit')->where('id','[0-9]+')->name("task_edit");
+Route::get('tasks/destroy/{id}', 'TaskController@destroy')->where('id','[0-9]+')->name("task_destroy");
+Route::get('tasks/all', 'TaskController@index')->name("tasks");
+Route::get('tasks/create', 'TaskController@create')->name("task_create");
+Route::resource('tasks', 'TaskController');
+
+
+Route::get('parts/all', 'PartController@index')->name("parts");
 Route::resource('parts', 'PartController', ['except' => ['show', 'edit', 'destroy', 'index']]);
 Route::get('parts/{code}', 'PartController@show')->name("part");
 Route::get('parts/create', 'PartController@create')->name("part_create");
@@ -48,7 +56,7 @@ Route::get('parts/destroy/{code}', 'PartController@destroy')->name("part_destroy
 Route::get('orders/{id}', 'OrderController@show')->where('id','[0-9]+')->name("order");
 Route::get('orders/edit/{id}', 'OrderController@edit')->where('id','[0-9]+')->name("order_edit");
 Route::get('orders/destroy/{id}', 'OrderController@destroy')->where('id','[0-9]+')->name("order_destroy");
-Route::get('orders', 'OrderController@index')->name("orders");
+Route::get('orders/all', 'OrderController@index')->name("orders");
 Route::get('orders/create', 'OrderController@create')->name("orders_create");
 Route::resource('orders', 'OrderController');
 
