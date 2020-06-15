@@ -87,7 +87,12 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        return view('task_edit', array('task' => Task::findOrFail($id)));
+        return view('task_edit', array(
+            'task' => Task::findOrFail($id),
+            'orders' => Order::pluck('name', 'id'),
+            'users' => User::pluck('email', 'id'),
+            'parts' => Part::pluck('name', 'code'),
+        ));
     }
 
     /**
@@ -103,7 +108,7 @@ class TaskController extends Controller
             'name' => 'required|string',
             'deadline' => 'required|date',
             'order' => 'required|exists:orders,id',
-            'responsible_employee' => 'nullable|exists:users,personal-number',
+            'responsible_employee' => 'nullable|exists:users,id',
             'part' => 'required|exists:parts,code',
             'amount' => 'required|integer|min:0',
             'amount_left' => 'required|integer|min:0',
@@ -119,7 +124,7 @@ class TaskController extends Controller
         $task->amount = $request['amount'];
         $task->amount_left = $request['amount_left'];
         $task->save();
-        return redirect()->route('task', $id);
+        return redirect()->route('tasks');
     }
 
     /**
