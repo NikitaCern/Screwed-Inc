@@ -12,7 +12,7 @@ use App\Order;
 class TaskController extends Controller
 {
     public function __construct() {
-        $this->middleware('task_mng');
+        $this->middleware('order_mng');
     }
     /**
      * Display a listing of the resource.

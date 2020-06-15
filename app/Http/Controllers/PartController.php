@@ -9,7 +9,7 @@ use App\Part;
 class PartController extends Controller
 {
     public function __construct() {
-        $this->middleware('part_mng');
+        $this->middleware('parts_mng');
     }
     /**
      * Display a listing of the resource.
