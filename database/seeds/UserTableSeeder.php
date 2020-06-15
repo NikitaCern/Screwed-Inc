@@ -65,7 +65,7 @@ class UserTableSeeder extends Seeder
         'personal_number' => '123456-78915',
         'first_name' => 'Uģis',
         'last_name' => 'Kuģis',
-        'post' => 'Task Distributor',
+        'post' => 'Part Manager',
         'roles' => 'part_mng',
         'email' => 'UK@email.com',
         'password' => bcrypt('password'),

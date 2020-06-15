@@ -37,6 +37,9 @@ label{
 input{
   width: inherit;
 }
+textarea{
+  width: inherit;
+}
 select{
   width: inherit;
 }
