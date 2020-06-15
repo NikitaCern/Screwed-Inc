@@ -9,7 +9,7 @@ use App\Order;
 class OrderController extends Controller
 {
     public function __construct() {
-        //$this->middleware('admin')->only(['create', 'store']);
+        $this->middleware('order_mng');
     }
     /**
      * Display a listing of the resource.

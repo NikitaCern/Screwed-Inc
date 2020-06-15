@@ -9,7 +9,7 @@ use App\Part;
 class PartController extends Controller
 {
     public function __construct() {
-        //$this->middleware('admin')->only(['create', 'store']);
+        $this->middleware('part_mng');
     }
     /**
      * Display a listing of the resource.
