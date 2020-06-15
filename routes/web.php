@@ -47,7 +47,7 @@ Route::resource('tasks', 'TaskController');
 
 
 Route::get('parts/all', 'PartController@index')->name("parts");
-Route::resource('parts', 'PartController', ['except' => ['show', 'edit', 'destroy', 'index']]);
+Route::resource('parts', 'PartController', ['except' => ['show', 'edit', 'destroy']]);
 Route::get('parts/{code}', 'PartController@show')->name("part");
 Route::get('parts/create', 'PartController@create')->name("part_create");
 Route::get('parts/edit/{code}', 'PartController@edit')->name("part_edit");
