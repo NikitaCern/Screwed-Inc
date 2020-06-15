@@ -43,14 +43,14 @@ class PartController extends Controller
             'code' => 'required|string',
             'name' => 'required|string',
             'description' => 'required|string',
-        );        
-        $this->validate($request, $rules); 
-        
+        );
+        $this->validate($request, $rules);
+
         $part = new Part();
         $part->code = $request['code'];
         $part->name = $request['name'];
         $part->description = $request['description'];
-        $part->save();        
+        $part->save();
         return redirect()->route('parts');
     }
 
@@ -62,7 +62,7 @@ class PartController extends Controller
      */
     public function show($code)
     {
-        return view('part', array('part' => Part::where('code','=', $code)->first()));
+        return view('parts', array('parts' => Part::where('code','=', $code)->first()));
     }
 
     /**
@@ -73,7 +73,7 @@ class PartController extends Controller
      */
     public function edit($code)
     {
-        return view('part_edit', array('part' => Part::where('code','=', $code)->first()));
+        return view('part_edit', array('parts' => Part::where('code','=', $code)->first()));
     }
 
     /**
@@ -88,14 +88,14 @@ class PartController extends Controller
         $rules = array(
             'name' => 'required|string',
             'description' => 'required|string',
-        );        
-        $this->validate($request, $rules); 
-        
+        );
+        $this->validate($request, $rules);
+
         $part = Part::where('code','=', $code)->first();
         $part->name = $request['name'];
         $part->description = $request['description'];
         $part->save();
-        return redirect()->route('part', $code);
+        return redirect()->route('parts');
     }
 
     /**

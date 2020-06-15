@@ -20,7 +20,7 @@ class CheckRole
                 return redirect('parts');
             }
       else if(auth()->user()->roles == 'order_mng'){
-                return redirect('orders');
+                return redirect('orders ');
             }
       else if(auth()->user()->roles == 'task_distr'){
                 return redirect('taskAsign');

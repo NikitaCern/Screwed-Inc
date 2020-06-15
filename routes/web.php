@@ -23,9 +23,10 @@ Route::group(['middleware' => ['guest']], function () {
 
 Auth::routes();
 
-Route::get('parts/all', 'PartController@index')->name("parts");
+Route::get('parts', 'PartController@index')->name("parts");
 Route::resource('parts', 'PartController', ['except' => ['show', 'edit', 'destroy', 'index']]);
 Route::get('parts/{code}', 'PartController@show')->name("part");
+Route::get('parts/create', 'PartController@create')->name("part_create");
 Route::get('parts/edit/{code}', 'PartController@edit')->name("part_edit");
 Route::get('parts/destroy/{code}', 'PartController@destroy')->name("part_destroy");
 
@@ -33,9 +34,9 @@ Route::get('orders/{id}', 'OrderController@show')->where('id','[0-9]+')->name("o
 Route::get('orders/edit/{id}', 'OrderController@edit')->where('id','[0-9]+')->name("order_edit");
 Route::get('orders/destroy/{id}', 'OrderController@destroy')->where('id','[0-9]+')->name("order_destroy");
 Route::get('orders/all', 'OrderController@index')->name("orders");
+Route::get('orders/create', 'OrderController@create')->name("orders_create");
 Route::resource('orders', 'OrderController');
 
-Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', function () {
         return view('home');
     })->middleware('checkRole');
@@ -44,11 +45,6 @@ Route::group(['middleware' => ['auth']], function () {
       $users = DB::table('users')->get();
         return view('users', ['users' =>$users ]);
     })->middleware('admin');
-
-    Route::get('/orders', function () {
-      $orders = DB::table('orders')->get();
-        return view('orders',['orders' =>$orders ]);
-    })->middleware('order_mng');
 
     Route::get('/tasks', function () {
       $tasks = DB::table('tasks')->get();
@@ -61,14 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('employees' , ['tasks' =>$tasks ]);
     })->middleware('employee');
 
-    Route::get('/parts', function () {
-        $parts = DB::table('parts')->get();
-        return view('parts', ['parts' =>$parts ]);
-    })->middleware('parts_mng');
-
     Route::get('/taskAsign', function () {
       $tasks = DB::table('tasks')->get();
         return view('taskAssignement', ['tasks' =>$tasks ]);
     })->middleware('task_asgn');
-});
-
