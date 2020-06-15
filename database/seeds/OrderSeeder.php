@@ -13,7 +13,7 @@ class OrderSeeder extends Seeder
     public function run()
     {
       $faker = Faker::create();
-      foreach (range(1, 105) as $index) {
+      foreach (range(1, 10) as $index) {
           DB::table('orders')->insert([
                 'name' => $faker->sentence($nbWords = 3, $variableNbWords = false),
                 'description' => $faker->text($maxNbChars = 200),

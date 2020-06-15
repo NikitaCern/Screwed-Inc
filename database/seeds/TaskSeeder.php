@@ -21,7 +21,7 @@ class TaskSeeder extends Seeder
        $parts = Part::all()->pluck('code')->toArray();
 
        $faker = Faker::create();
-       foreach (range(1, 100) as $index) {
+       foreach (range(1, 10) as $index) {
            DB::table('tasks')->insert([
                  'deadline' => $faker->date($format = 'Y-m-d', $max = 'now'),
                  'name' => $faker->sentence($nbWords = 3, $variableNbWords = false),

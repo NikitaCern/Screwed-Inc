@@ -13,7 +13,7 @@ class PartSeeder extends Seeder
      public function run()
      {
        $faker = Faker::create();
-       foreach (range(1, 100) as $index) {
+       foreach (range(1, 10) as $index) {
            DB::table('parts')->insert([
                  'code' => $faker->unique()->numberBetween($min = 1000, $max = 9000),
                  'name' => $faker->sentence($nbWords = 3, $variableNbWords = false),
