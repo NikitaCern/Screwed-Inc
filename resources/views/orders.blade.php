@@ -11,7 +11,7 @@
                     <a class="btn btn-outline-dark order-btn" href="/tasks">{{ __('TASKS') }}</a>
           </div>
           @endif
-        <a class="btn btn-outline-dark create-order-btn">{{ __('CREATE ORDER') }}</a>
+        <a href="{{ url('orders/create') }}" class="btn btn-outline-dark create-order-btn">{{ __('CREATE ORDER') }}</a>
       </div>
       </form>
       @if (sizeof($orders) != 0)
@@ -29,11 +29,11 @@
               @endif
             </td>
             <td class="col-btn">
-              @if($data->is_done != 0)
-              <a class="btn btn-outline-dark edit-btn">{{ __('EDIT') }}</a>
+              @if(($data->is_done != 0) || (Auth::user()->roles == 'order_mng'))
+              <a href="{{ url('orders/edit/' . $data->id) }}" class="btn btn-outline-dark edit-btn">{{ __('EDIT') }}</a>
               <a class="btn btn-outline-dark edit-btn">{{ __('CREATE TASK') }}</a>
               @endif
-              <a class="btn btn-secondary remove-btn" >{{ __('REMOVE') }}</a>
+              <a href="{{ url('orders/destroy/' . $data->id) }}" class="btn btn-secondary remove-btn" >{{ __('REMOVE') }}</a>
            </td>
           </tr>
           @endforeach

@@ -33,7 +33,7 @@ Route::get('parts/destroy/{code}', 'PartController@destroy')->name("part_destroy
 Route::get('orders/{id}', 'OrderController@show')->where('id','[0-9]+')->name("order");
 Route::get('orders/edit/{id}', 'OrderController@edit')->where('id','[0-9]+')->name("order_edit");
 Route::get('orders/destroy/{id}', 'OrderController@destroy')->where('id','[0-9]+')->name("order_destroy");
-Route::get('orders/all', 'OrderController@index')->name("orders");
+Route::get('orders', 'OrderController@index')->name("orders");
 Route::get('orders/create', 'OrderController@create')->name("orders_create");
 Route::resource('orders', 'OrderController');
 

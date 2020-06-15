@@ -43,18 +43,18 @@ class OrderController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'deadline' => 'required|date',
-        );        
-        $this->validate($request, $rules); 
-        
+        );
+        $this->validate($request, $rules);
+
         $order = new Order();
         $order->name = $request['name'];
         $order->description = $request['description'];
         $order->deadline = $request['deadline'];
-        if ( !isset($request['is_done']) || $request['is_done']==null )    
+        if ( !isset($request['is_done']) || $request['is_done']==null )
             $order->is_done = 0;
-        else 
+        else
             $order->is_done = 1;
-        $order->save();        
+        $order->save();
         return redirect()->route('orders');
     }
 
@@ -93,18 +93,18 @@ class OrderController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'deadline' => 'required|date',
-        );        
-        $this->validate($request, $rules); 
-        
+        );
+        $this->validate($request, $rules);
+
         $order = Order::findOrFail($id);
         $order->name = $request['name'];
         $order->description = $request['description'];
         $order->deadline = $request['deadline'];
-        if ( !isset($request['is_done']) || $request['is_done']==null )    
+        if ( !isset($request['is_done']) || $request['is_done']==null )
             $order->is_done = 0;
-        else 
+        else
             $order->is_done = 1;
-        $order->save();        
+        $order->save();
         return redirect()->route('order', $id);
     }
 
