@@ -2,7 +2,7 @@
 @section('content')
   <div class="container mid">
     <div class="row justify-content-center" align="center">
-        <div class="jumbotron" >
+        <div class="jumbotron w-50 " >
     <h4 class="text-center">Create Task</h4>
       {{ Form::open(array('action' => 'TaskController@store')) }}
       <div class="form-group w-100">

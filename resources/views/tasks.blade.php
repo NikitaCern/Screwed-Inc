@@ -11,7 +11,7 @@
       <a class="btn btn-secondary order-btn" href="/tasks">{{ __('TASKS') }}</a>
     </div>
     @endif
-    <a class="btn btn-outline-dark create-order-btn">{{ __('CREATE TASK') }}</a>
+    <a href="{{ url('tasks/create') }}"class="btn btn-outline-dark create-order-btn">{{ __('CREATE TASK') }}</a>
   </div>
   </form>
   @if (sizeof($tasks) != 0)
@@ -24,8 +24,8 @@
         <p class="table-content"> {{ __('Deadline') }}: {{$data->deadline}}</p>
         </td>
         <td class="col-btn">
-          <a class="btn btn-outline-dark done-btn">{{ __('DONE') }}</a>
-          <a class="btn btn-secondary remove-btn">{{ __('REMOVE') }}</a>
+          <a href="{{ url('tasks/edit/' . $data->id) }}" class="btn btn-secondary remove-btn">{{ __('EDIT') }}</a>
+          <a href="{{ url('tasks/destroy/' . $data->id) }}" class="btn btn-secondary remove-btn">{{ __('REMOVE') }}</a>
         </td>
       </tr>
       @endforeach

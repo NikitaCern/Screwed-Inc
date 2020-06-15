@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+  public $timestamps = false;
     public function order() { // FK relationship
         return $this->belongsTo('App\Order');
     }

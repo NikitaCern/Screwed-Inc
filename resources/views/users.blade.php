@@ -5,7 +5,7 @@
 
   <form>
     <div class="form-group d-flex justify-content-around">
-      <a href="{{ route('register') }}" class="btn btn-outline-dark create-order-btn">{{ __('CREATE NEW USER') }}</a>
+      <a href="{{ url('users/create') }}" class="btn btn-outline-dark create-order-btn">{{ __('CREATE NEW USER') }}</a>
     </div>
   </form>
 
