@@ -73,7 +73,7 @@ Route::resource('orders', 'OrderController');
     })->middleware('order_mng');
 
     Route::get('/employees', function () {
-      $responsible_PK = Auth::user()->personal_number;
+      $responsible_PK = Auth::user()->id;
       $tasks = DB::table('tasks')->where('responsible_employee', $responsible_PK)->get();
         return view('employees' , ['tasks' =>$tasks ]);
     })->middleware('employee');

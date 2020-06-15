@@ -1,7 +1,7 @@
   @extends('layouts.app')
   @section('content')
   <div class="container mid">
-
+  <h4 class="text-center">{{ __('To-Do') }}</h4>
     @if (sizeof($tasks) != 0)
         <table class="table table-borderless">
 
@@ -9,10 +9,10 @@
             @foreach ($tasks as $key => $data)
             <tr>
               <td><h5 class="user-heading">{{$data->name}}</h5>
-              <p class="table-content">{{$data->amount_left}}<br>Deadline: {{$data->deadline}}</p>
+              <p class="table-content">Amount Left: {{$data->amount_left}}<br>Deadline: {{$data->deadline}}</p>
               </td>
-              <td class="col-btn"><button type="button" class="btn btn-outline-dark more-info">{{ __('MORE INFO') }}</button><br>
-                <button type="submit" class="btn btn-secondary done-btn">{{ __('DONE') }}</button>
+              <td class="col-btn">
+                <a class="btn btn-secondary done-btn">{{ __('DONE') }}</a>
               </td>
             </tr>
             @endforeach

@@ -13,7 +13,6 @@
         <p class="table-content" >{{ __('Deadline') }}: {{$data->deadline}}</p>
         </td>
         <td class="col-btn">
-          <a class="btn btn-outline-dark more-info">{{ __('MORE INFO') }}</a>
           <a class="btn btn-secondary done-btn">{{ __('ASSIGN WORKER') }}</a>
         </td>
       </tr>
