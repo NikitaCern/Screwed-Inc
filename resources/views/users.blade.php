@@ -1,13 +1,12 @@
 @extends('layouts.app')
 @section('content')
     <div class="container mid">
-      <h4 class="text-center">Users</h4>
+      <h4 class="text-center">{{ __('Users') }}</h4>
 
       <form>
         <div class="form-group d-flex justify-content-around">
 
-          <a href="{{ url('new_user') }}" class="btn btn-outline-dark create-order-btn">CREATE NEW USER</a>
-
+          <a href="{{ url('new_user') }}" class="btn btn-outline-dark create-order-btn">{{ __('CREATE NEW USER') }}
         </div>
 
       </form>
@@ -21,15 +20,15 @@
             <p class="table-content">{{$data->post}}</p>
             </td>
             <td class="col-btn">
-              <a class="btn btn-outline-dark edit-btn">EDIT</a>
-              <a class="btn btn-secondary remove-btn">REMOVE</a>
+              <a class="btn btn-outline-dark edit-btn">{{ __('EDIT') }}</a>
+              <a class="btn btn-secondary remove-btn">{{ __('REMOVE') }}</a>
             </td>
           </tr>
           @endforeach
         </tbody>
       </table>
       @else
-      <h2>No Users in the database!</h2>
+      <h2>{{ __('Nothing here!') }}</h2>
       @endif
     </div>
 @endsection

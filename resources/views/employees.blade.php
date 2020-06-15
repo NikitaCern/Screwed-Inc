@@ -11,15 +11,15 @@
               <td><h5 class="user-heading">{{$data->name}}</h5>
               <p class="table-content">{{$data->amount_left}}<br>Deadline: {{$data->deadline}}</p>
               </td>
-              <td class="col-btn"><button type="button" class="btn btn-outline-dark more-info">MORE INFO</button><br>
-                <button type="submit" class="btn btn-secondary done-btn">DONE</button>
+              <td class="col-btn"><button type="button" class="btn btn-outline-dark more-info">{{ __('MORE INFO') }}</button><br>
+                <button type="submit" class="btn btn-secondary done-btn">{{ __('DONE') }}</button>
               </td>
             </tr>
             @endforeach
           </tbody>
         </table>
       @else
-      <h2>All Done! You have no tasks for now!</h2>
+      <h2>{{ __('Nothing here!') }}</h2>
       @endif
   </div>
   @endsection

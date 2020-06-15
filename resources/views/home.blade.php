@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mid">
-                <h4 class="text-center">Administrator panel</h4>
+                <h4 class="text-center">{{ __('Administrator panel') }}</h4>
                     <div class="form-group d-flex justify-content-around mt-5">
                     <a  href="/orders" class="btn btn-outline-dark edit-btn">
                         {{ __('Orders') }}

@@ -34,6 +34,22 @@ label{
 .navbar .container{
   white-space: nowrap;
 }
+input{
+  width: inherit;
+}
+
+input[type=submit]{
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+input[type=submit]:hover{
+  background-color: #08d123;
+  color: #fff;
+  border-color: #08d123;
+}
+
 #navbarSupportedContent{
   display: flex;
   flex-direction: row;
@@ -138,6 +154,9 @@ a , .btn:hover{
     margin-top: 15%;
     margin-bottom: 15%;
     padding-left: 12%;
+}
+.disabled{
+  color: grey;
 }
 .form-field{
     margin-left: 10%;
